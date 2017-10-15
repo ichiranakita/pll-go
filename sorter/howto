@@ -1,0 +1,19 @@
+source ./prepare.sh
+
+go build sorter
+go build algorithms/qsort
+go build algorithms/bubblesort
+
+go test algorithms/qsort
+go test algorithms/bubblesort
+
+go install algorithms/qsort
+go install algorithms/bubblesort
+
+go build sorter
+
+go install sorter
+
+./sorter -i unsorted.dat -o sorted.dat -a qsort
+
+./sorter -i unsorted.dat -o sorted.dat -a bubblesort

@@ -1,7 +1,9 @@
 source ./prepare.sh
 
-go build bin/calc 
+go build calc
 
 ./calc
+
+go build simplemath
 
 go test simplemath
