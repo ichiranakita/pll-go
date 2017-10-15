@@ -8,21 +8,21 @@ import "io"
 import "os"
 import "strconv"
 import "time"
-import "algorithm/qsort"
-import "algorithm/bubblesort"
+import "algorithms/qsort"
+import "algorithms/bubblesort"
 
 var infile *string = flag.String("i", "infile", "File contains values for sorting")
 var outfile *string = flag.String("o", "outfile", "File to receive sorted values")
 var algorithm *string = flag.String("a", "qsort", "Sort algorithm")
 
 func readValues(infile string) (values []int, err error) {
-  file, err := os.open(infile)
+  file, err := os.Open(infile)
   if err != nil {
     fmt.Println("Failed to open the input file ", infile)
     return
   }
 
-  defer file.close()
+  defer file.Close()
 
   br := bufio.NewReader(file)
 
@@ -64,7 +64,7 @@ func writeValues(values []int, outfile string) error {
     return err
   }
 
-  defer file.close()
+  defer file.Close()
 
   for _, value := range values {
     str := strconv.Itoa(value)
